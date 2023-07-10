@@ -21,8 +21,8 @@ em["Subject"] = subject
 em.set_content(body)
 
 
-with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
+with smtplib.SMTP_SSL("smtp.gmail.com", 465) as connection:
     # smtp.set_debuglevel(1)
     # smtp.starttls()
-    smtp.login(email_sender, email_password)
-    smtp.sendmail(email_sender, email_receiver, em.as_string())
+    connection.login(email_sender, email_password)
+    connection.sendmail(email_sender, email_receiver, em.as_string())
